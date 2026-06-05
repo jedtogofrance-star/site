@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — JED France</title>
+  <meta name="description" content="" />
+  <link rel="icon" href="https://res.cloudinary.com/dztxdthmd/image/upload/v1780689618/JED-TOGO_hibswd.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-family: var(--font-display); font-size: 0.88rem; font-weight: 600; color: var(--noir); margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--noir); background: var(--blanc);
+      transition: border-color var(--transition); outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--orange); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width:640px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="stripe"></div>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://res.cloudinary.com/dztxdthmd/image/upload/v1780689618/JED-TOGO_hibswd.png" alt="JED France" />
+        <span>JED France</span>
+      </a>
+      <button id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul id="nav-menu">
+        <li><a href="index.html"     class="nav-link" data-fr="Accueil"   data-en="Home">Accueil</a></li>
+        <li><a href="a-propos.html"  class="nav-link" data-fr="À propos"  data-en="About">À propos</a></li>
+        <li><a href="projets.html"   class="nav-link" data-fr="Projets"   data-en="Projects">Projets</a></li>
+        <li><a href="agenda.html"    class="nav-link" data-fr="Agenda"    data-en="Agenda">Agenda</a></li>
+        <li><a href="benevoles.html" class="nav-link" data-fr="Bénévoles" data-en="Volunteers">Bénévoles</a></li>
+        <li><a href="contact.html"   class="nav-link" data-fr="Contact"   data-en="Contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="https://www.helloasso.com/associations/jed-france" target="_blank" rel="noopener" class="btn-nav-don">
+          ❤ <span data-fr="Faire un don" data-en="Donate">Faire un don</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&q=80');"></div>
+      <div class="stripe" style="position:absolute;top:0;left:0;right:0;"></div>
+      <div class="page-hero-inner">
+        <h1 class="slide-up" data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</h1>
+        <p class="slide-up delay-1" data-fr="Une question, un projet, une envie de s'engager ?" data-en="A question, a project, a desire to get involved?">Une question, un projet, une envie de s'engager ?</p>
+      </div>
+      <div class="stripe" style="position:absolute;bottom:0;left:0;right:0;"></div>
+    </section>
+
+    <div class="section">
+      <div class="contact-grid">
+
+        <!-- INFOS CONTACT -->
+        <div class="slide-left">
+          <div class="section-label" data-fr="Nos coordonnées" data-en="Our details">Nos coordonnées</div>
+          <h2 class="section-title" style="margin-bottom:24px;" data-fr="On est là pour vous" data-en="We're here for you">On est là pour vous</h2>
+
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div style="font-weight:600;color:var(--noir);font-size:0.9rem;" data-fr="Email" data-en="Email">Email</div>
+              <a href="mailto:associationjedtogo@gmail.com" style="color:var(--gris-md);">associationjedtogo@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div style="font-weight:600;color:var(--noir);font-size:0.9rem;" data-fr="Téléphone France" data-en="France phone">Téléphone France</div>
+              <a href="tel:+33622287769" style="color:var(--gris-md);">+33 6 22 28 77 69</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div style="font-weight:600;color:var(--noir);font-size:0.9rem;" data-fr="Téléphone Togo" data-en="Togo phone">Téléphone Togo</div>
+              <a href="tel:+22890991987" style="color:var(--gris-md);">+228 90 99 19 87</a>
+            </div>
+          </div>
+
+          <!-- RÉSEAUX SOCIAUX -->
+          <div style="margin-top:28px;">
+            <div style="font-family:var(--font-display);font-weight:600;color:var(--noir);margin-bottom:14px;font-size:0.95rem;" data-fr="Suivez-nous" data-en="Follow us">Suivez-nous</div>
+            <div class="socials-grid">
+              <a href="#" target="_blank" rel="noopener" class="social-pill">
+                <span>f</span> Facebook
+              </a>
+              <a href="#" target="_blank" rel="noopener" class="social-pill">
+                <span>📷</span> Instagram
+              </a>
+              <a href="#" target="_blank" rel="noopener" class="social-pill">
+                <span>♪</span> TikTok
+              </a>
+              <a href="#" target="_blank" rel="noopener" class="social-pill">
+                <span>in</span> LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- LIEN TOGO -->
+          <a href="https://jedtogo.org" target="_blank" rel="noopener" class="togo-card">
+            <div class="togo-card-icon">🌍</div>
+            <div>
+              <strong data-fr="Visiter le site de JED Togo" data-en="Visit JED Togo website">Visiter le site de JED Togo</strong>
+              <p data-fr="Projets terrain, parrainage, programmes 2026 et plus" data-en="Field projects, sponsorship, 2026 programmes and more">Projets terrain, parrainage, programmes 2026 et plus</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- FORMULAIRE -->
+        <div class="slide-right">
+          <div style="background:var(--blanc);border:1px solid var(--border);border-radius:var(--radius-md);padding:32px 36px;">
+            <div class="section-label" data-fr="Formulaire de contact" data-en="Contact form">Formulaire de contact</div>
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--noir);margin-bottom:24px;" data-fr="Envoyez-nous un message" data-en="Send us a message">Envoyez-nous un message</h3>
+
+            <!-- NOTE: connecter ce formulaire à un service (Formspree, Netlify Forms, etc.) -->
+            <div id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-fr="Prénom" data-en="First name">Prénom</label>
+                  <input type="text" id="prenom" data-fr-placeholder="Votre prénom" data-en-placeholder="Your first name" placeholder="Votre prénom" />
+                </div>
+                <div class="form-group">
+                  <label data-fr="Nom" data-en="Last name">Nom</label>
+                  <input type="text" id="nom" data-fr-placeholder="Votre nom" data-en-placeholder="Your last name" placeholder="Votre nom" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-fr="Email" data-en="Email">Email</label>
+                <input type="email" id="email" data-fr-placeholder="votre@email.com" data-en-placeholder="your@email.com" placeholder="votre@email.com" />
+              </div>
+              <div class="form-group">
+                <label data-fr="Objet" data-en="Subject">Objet</label>
+                <select id="objet">
+                  <option value="" data-fr="Choisir un objet..." data-en="Choose a subject...">Choisir un objet...</option>
+                  <option value="don" data-fr="Faire un don" data-en="Make a donation">Faire un don</option>
+                  <option value="benevole" data-fr="Devenir bénévole" data-en="Become a volunteer">Devenir bénévole</option>
+                  <option value="partenaire" data-fr="Devenir partenaire" data-en="Become a partner">Devenir partenaire</option>
+                  <option value="info" data-fr="Demande d'informations" data-en="Information request">Demande d'informations</option>
+                  <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label data-fr="Message" data-en="Message">Message</label>
+                <textarea id="message" data-fr-placeholder="Votre message..." data-en-placeholder="Your message..." placeholder="Votre message..."></textarea>
+              </div>
+              <button onclick="submitForm()" class="btn btn-primary" style="width:100%;justify-content:center;" data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
+              <p style="font-size:0.8rem;color:var(--gris-md);margin-top:10px;text-align:center;" data-fr="Nous vous répondons dans les 48h" data-en="We reply within 48 hours">Nous vous répondons dans les 48h</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="stripe"></div>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="https://res.cloudinary.com/dztxdthmd/image/upload/v1780689618/JED-TOGO_hibswd.png" alt="JED France" />
+          <span>JED France</span>
+        </div>
+        <p class="footer-desc" data-fr="Branche française de JED Togo." data-en="French branch of JED Togo.">Branche française de JED Togo.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+        <ul>
+          <li><a href="index.html"    data-fr="Accueil"  data-en="Home">Accueil</a></li>
+          <li><a href="a-propos.html" data-fr="À propos" data-en="About">À propos</a></li>
+          <li><a href="projets.html"  data-fr="Projets"  data-en="Projects">Projets</a></li>
+          <li><a href="agenda.html"   data-fr="Agenda"   data-en="Agenda">Agenda</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Agir" data-en="Take action">Agir</h4>
+        <ul>
+          <li><a href="https://www.helloasso.com/associations/jed-france" target="_blank" data-fr="Faire un don" data-en="Donate">Faire un don</a></li>
+          <li><a href="benevoles.html" data-fr="Devenir bénévole" data-en="Become a volunteer">Devenir bénévole</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:associationjedtogo@gmail.com">associationjedtogo@gmail.com</a></li>
+          <li><a href="tel:+33622287769">+33 6 22 28 77 69</a></li>
+          <li><a href="https://jedtogo.org" target="_blank">jedtogo.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 JED France</p>
+      <a href="https://jedtogo.org" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);font-size:0.82rem;">jedtogo.org</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Formulaire — À connecter à Formspree ou Netlify Forms
+    // Remplacer l'action par votre endpoint
+    function submitForm() {
+      const prenom = document.getElementById('prenom').value;
+      const nom = document.getElementById('nom').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      if (!prenom || !email || !message) {
+        alert('Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+      // TODO: connecter à Formspree / Netlify Forms / EmailJS
+      // Exemple Formspree: fetch('https://formspree.io/f/VOTRE_ID', { method:'POST', body: new FormData(...) })
+      window.location.href = 'mailto:associationjedtogo@gmail.com?subject=Contact JED France&body=' + encodeURIComponent(message);
+    }
+  </script>
+</body>
+</html>
