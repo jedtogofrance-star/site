@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nos projets — JED France</title>
   <meta name="description" content="" />
-  <link rel="icon" href="img/favicon.ico" />
-  <link rel="apple-touch-icon" href="img/favicon-180.png" />
+  <link rel="icon" href="https://res.cloudinary.com/dztxdthmd/image/upload/ar_1:1,c_crop,g_west/v1783179321/logo-depuis-fb_no3e4k.png" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dztxdthmd/image/upload/ar_1:1,c_crop,g_west,w_180/v1783179321/logo-depuis-fb_no3e4k.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,7 +15,7 @@
     <div class="stripe"></div>
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="img/logo.png" alt="JED France" />
+        <img src="https://res.cloudinary.com/dztxdthmd/image/upload/v1783179321/logo-depuis-fb_no3e4k.png" alt="JED France" />
       </a>
       <button id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       <ul id="nav-menu">
@@ -72,11 +72,14 @@
       </div>
     </div>
 
-    <!-- ONGLET PRINCIPAL FRANCE / TOGO -->
+    <!-- ONGLET PRINCIPAL FRANCE / TOGO — INTERRUPTEUR iOS -->
     <div class="section" style="padding-bottom:0;">
-      <div class="tabs-nav" id="main-tabs-nav" style="justify-content:center;">
-        <button class="tab-btn active" data-maintab="france" data-fr="🇫🇷 Actions en France" data-en="🇫🇷 Actions in France">🇫🇷 Actions en France</button>
-        <button class="tab-btn" data-maintab="togo" data-fr="🇹🇬 Projets au Togo" data-en="🇹🇬 Projects in Togo">🇹🇬 Projets au Togo</button>
+      <div class="ios-toggle-wrap" id="main-tabs-nav">
+        <span class="ios-toggle-label active" data-side="france" data-fr="🇫🇷 Actions en France" data-en="🇫🇷 Actions in France">🇫🇷 Actions en France</span>
+        <button type="button" id="main-ios-toggle" class="ios-toggle" role="switch" aria-checked="false" aria-label="Basculer entre Actions en France et Projets au Togo">
+          <span class="ios-toggle-knob"></span>
+        </button>
+        <span class="ios-toggle-label" data-side="togo" data-fr="🇹🇬 Projets au Togo" data-en="🇹🇬 Projects in Togo">🇹🇬 Projets au Togo</span>
       </div>
     </div>
 
@@ -127,13 +130,13 @@
       <p class="section-sub slide-up delay-1" data-fr="Une visibilité complète sur les projets terrain de JED Togo, pour nos partenaires, sponsors et le grand public." data-en="Complete visibility on JED Togo's field projects, for our partners, sponsors and the general public.">Une visibilité complète sur les projets terrain de JED Togo, pour nos partenaires, sponsors et le grand public.</p>
 
       <div class="tabs-nav">
-        <button class="tab-btn active" data-tab="realises" data-fr="✅ Réalisés" data-en="✅ Completed">✅ Réalisés</button>
-        <button class="tab-btn" data-tab="en_cours" data-fr="🔄 En cours" data-en="🔄 In progress">🔄 En cours</button>
+        <button class="tab-btn" data-tab="realises" data-fr="✅ Réalisés" data-en="✅ Completed">✅ Réalisés</button>
+        <button class="tab-btn active" data-tab="en_cours" data-fr="🔄 En cours" data-en="🔄 In progress">🔄 En cours</button>
         <button class="tab-btn" data-tab="a_venir" data-fr="🔮 À venir" data-en="🔮 Upcoming">🔮 À venir</button>
       </div>
 
       <!-- RÉALISÉS -->
-      <div id="realises" class="tab-panel active">
+      <div id="realises" class="tab-panel">
         <div class="projet-card fade-in">
           <img class="projet-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Maison d'accueil des enfants" />
           <div class="projet-body">
@@ -173,7 +176,7 @@
       </div>
 
       <!-- EN COURS -->
-      <div id="en_cours" class="tab-panel">
+      <div id="en_cours" class="tab-panel active">
         <div class="projet-card fade-in">
           <img class="projet-img" src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80" alt="Terrain de jeux" />
           <div class="projet-body">
@@ -237,7 +240,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">
-          <img src="img/logo.png" alt="JED France" />
+          <img src="https://res.cloudinary.com/dztxdthmd/image/upload/v1783179321/logo-depuis-fb_no3e4k.png" alt="JED France" />
         </div>
         <p class="footer-desc" data-fr="Branche française de JED Togo — association à but non lucratif engagée pour la dignité humaine." data-en="French branch of JED Togo — non-profit association committed to human dignity.">Branche française de JED Togo — association à but non lucratif engagée pour la dignité humaine.</p>
       </div>
@@ -279,30 +282,40 @@
   <script src="js/main.js"></script>
   <script>
     (function () {
-      var buttons = document.querySelectorAll('#main-tabs-nav .tab-btn');
+      var toggle = document.getElementById('main-ios-toggle');
+      var labels = document.querySelectorAll('#main-tabs-nav .ios-toggle-label');
       var panels = document.querySelectorAll('.main-tab-panel');
 
+      function forceVisible(panel) {
+        var animated = panel.querySelectorAll('.fade-in, .slide-up, .slide-left, .slide-right');
+        animated.forEach(function (el) { el.classList.add('visible'); });
+      }
+
       function activate(tab) {
-        buttons.forEach(function (b) {
-          b.classList.toggle('active', b.getAttribute('data-maintab') === tab);
+        if (toggle) {
+          toggle.classList.toggle('is-togo', tab === 'togo');
+          toggle.setAttribute('aria-checked', tab === 'togo' ? 'true' : 'false');
+        }
+        labels.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('data-side') === tab);
         });
         panels.forEach(function (p) {
           var isTarget = p.getAttribute('data-maintab') === tab;
           p.style.display = isTarget ? '' : 'none';
-          if (isTarget) {
-            // Force la visibilité des éléments à animation "scroll-reveal"
-            // qui n'ont pas pu être détectés pendant que le panel était caché.
-            var animated = p.querySelectorAll('.fade-in, .slide-up, .slide-left, .slide-right');
-            animated.forEach(function (el) {
-              el.classList.add('visible');
-            });
-          }
+          if (isTarget) forceVisible(p);
         });
       }
 
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          activate(btn.getAttribute('data-maintab'));
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var newTab = toggle.classList.contains('is-togo') ? 'france' : 'togo';
+          activate(newTab);
+        });
+      }
+
+      labels.forEach(function (l) {
+        l.addEventListener('click', function () {
+          activate(l.getAttribute('data-side'));
         });
       });
 
@@ -311,6 +324,20 @@
       if (initialTab === 'togo' || initialTab === 'france') {
         activate(initialTab);
       }
+
+      // Sous-onglets Réalisés / En cours / À venir : même correctif de visibilité
+      var subButtons = document.querySelectorAll('.tabs-nav .tab-btn[data-tab]');
+      var subPanels = document.querySelectorAll('.tab-panel[id]');
+      subButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-tab');
+          setTimeout(function () {
+            subPanels.forEach(function (p) {
+              if (p.id === target) forceVisible(p);
+            });
+          }, 0);
+        });
+      });
     })();
   </script>
 </body>
