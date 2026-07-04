@@ -287,7 +287,16 @@
           b.classList.toggle('active', b.getAttribute('data-maintab') === tab);
         });
         panels.forEach(function (p) {
-          p.style.display = (p.getAttribute('data-maintab') === tab) ? '' : 'none';
+          var isTarget = p.getAttribute('data-maintab') === tab;
+          p.style.display = isTarget ? '' : 'none';
+          if (isTarget) {
+            // Force la visibilité des éléments à animation "scroll-reveal"
+            // qui n'ont pas pu être détectés pendant que le panel était caché.
+            var animated = p.querySelectorAll('.fade-in, .slide-up, .slide-left, .slide-right');
+            animated.forEach(function (el) {
+              el.classList.add('visible');
+            });
+          }
         });
       }
 
