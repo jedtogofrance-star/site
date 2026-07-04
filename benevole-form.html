@@ -31,11 +31,6 @@
       color: var(--gris-md);
     }
     .tally-placeholder .icon { font-size: 2.4rem; margin-bottom: 16px; }
-    @media (max-width: 800px) {
-      .section > div[style*="grid-template-columns:repeat(3,1fr)"] {
-        grid-template-columns: 1fr !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -86,67 +81,24 @@
         Choisissez votre mode d'engagement (France, camp chantier au Togo ou ambassadeur) et répondez aux quelques questions qui suivent — nous revenons vers vous rapidement.
       </p>
 
-      <!-- RÉSUMÉS DES 3 MODES D'ENGAGEMENT -->
-      <div id="engagement-summaries" style="max-width:1000px;margin:0 auto 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-        <div class="engagement-summary" data-type="france" style="background:var(--gris-lt);border-radius:var(--radius-md);padding:20px 22px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <span style="font-size:1.2rem;">🇫🇷</span>
-            <strong style="font-family:var(--font-display);color:var(--noir);font-size:0.95rem;" data-fr="En France" data-en="In France">En France</strong>
-          </div>
-          <p style="color:var(--gris-md);line-height:1.7;font-size:0.9rem;margin:0;" data-fr="Quelques heures par semaine suffisent : sensibilisation, communication, organisation d'événements, collecte de fonds. Une implication flexible, adaptée à votre emploi du temps." data-en="A few hours a week is enough: awareness, communication, event organisation, fundraising. Flexible involvement, adapted to your schedule.">
-            Quelques heures par semaine suffisent : sensibilisation, communication, organisation d'événements, collecte de fonds. Une implication flexible, adaptée à votre emploi du temps.
-          </p>
+      <!-- RÉSUMÉ CAMP CHANTIER TOGO -->
+      <div style="max-width:780px;margin:0 auto 32px;background:var(--gris-lt);border-radius:var(--radius-md);padding:24px 28px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span style="font-size:1.3rem;">📍</span>
+          <strong style="font-family:var(--font-display);color:var(--noir);" data-fr="Camp chantier au Togo" data-en="Workcamp in Togo">Camp chantier au Togo</strong>
         </div>
-
-        <div class="engagement-summary" data-type="togo" style="background:var(--gris-lt);border-radius:var(--radius-md);padding:20px 22px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <span style="font-size:1.2rem;">✈️</span>
-            <strong style="font-family:var(--font-display);color:var(--noir);font-size:0.95rem;" data-fr="Camp chantier au Togo" data-en="Workcamp in Togo">Camp chantier au Togo</strong>
-          </div>
-          <p style="color:var(--gris-md);line-height:1.7;font-size:0.9rem;margin-bottom:8px;" data-fr="2 semaines sur le terrain aux côtés de l'équipe JED, à Lomé et dans les villages partenaires. Actions concrètes, échanges culturels et rencontres humaines fortes. Hébergement et encadrement assurés sur place." data-en="2 weeks in the field alongside the JED team, in Lomé and partner villages. Concrete actions, cultural exchanges and strong human encounters. Accommodation and supervision provided on site.">
-            2 semaines sur le terrain aux côtés de l'équipe JED, à Lomé et dans les villages partenaires. Actions concrètes, échanges culturels et rencontres humaines fortes. Hébergement et encadrement assurés sur place.
-          </p>
-          <p style="font-size:0.82rem;color:var(--gris-md);margin:0;" data-fr="Plus de détails :" data-en="More details:">
-            Plus de détails : <a href="https://jedtogo.org/programmes/" target="_blank" rel="noopener" style="color:var(--orange);font-weight:600;">jedtogo.org/programmes</a>
-          </p>
-        </div>
-
-        <div class="engagement-summary" data-type="ambassadeur" style="background:var(--gris-lt);border-radius:var(--radius-md);padding:20px 22px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <span style="font-size:1.2rem;">🎤</span>
-            <strong style="font-family:var(--font-display);color:var(--noir);font-size:0.95rem;" data-fr="Ambassadeur JED" data-en="JED Ambassador">Ambassadeur JED</strong>
-          </div>
-          <p style="color:var(--gris-md);line-height:1.7;font-size:0.9rem;margin:0;" data-fr="Parlez de JED autour de vous — école, entreprise ou réseau personnel. Pas d'engagement de temps fixe : chaque prise de parole aide à faire connaître nos actions et convaincre de nouveaux soutiens." data-en="Talk about JED around you — school, company or personal network. No fixed time commitment: every conversation helps raise awareness of our actions and win new support.">
-            Parlez de JED autour de vous — école, entreprise ou réseau personnel. Pas d'engagement de temps fixe : chaque prise de parole aide à faire connaître nos actions et convaincre de nouveaux soutiens.
-          </p>
-        </div>
+        <p style="color:var(--gris-md);line-height:1.8;margin-bottom:8px;" data-fr="2 semaines sur le terrain aux côtés de l'équipe JED, à Lomé et dans les villages partenaires. Au programme : actions concrètes (construction, soutien scolaire, aide aux familles), échanges culturels et rencontres humaines fortes. Hébergement et encadrement assurés sur place par l'équipe JED Togo. Une expérience qui marque durablement." data-en="2 weeks in the field alongside the JED team, in Lomé and partner villages. On the programme: concrete actions (construction, school support, family assistance), cultural exchanges and strong human encounters. Accommodation and supervision provided on site by the JED Togo team. A lasting experience.">
+          2 semaines sur le terrain aux côtés de l'équipe JED, à Lomé et dans les villages partenaires. Au programme : actions concrètes (construction, soutien scolaire, aide aux familles), échanges culturels et rencontres humaines fortes. Hébergement et encadrement assurés sur place par l'équipe JED Togo. Une expérience qui marque durablement.
+        </p>
+        <p style="font-size:0.88rem;color:var(--gris-md);margin:0;" data-fr="Plus de détails sur les dates et modalités :" data-en="More details on dates and terms:">
+          Plus de détails sur les dates et modalités : <a href="https://jedtogo.org/programmes/" target="_blank" rel="noopener" style="color:var(--orange);font-weight:600;">jedtogo.org/programmes</a>
+        </p>
       </div>
-
-      <p style="text-align:center;font-weight:600;color:var(--noir);margin-bottom:14px;" data-fr="📋 Formulaire à remplir" data-en="📋 Form to fill in">📋 Formulaire à remplir</p>
 
       <div class="tally-embed-wrap">
         <iframe data-tally-src="https://tally.so/embed/Y5y0B0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                 loading="lazy" title="Formulaire bénévoles"></iframe>
       </div>
-
-      <script>
-        (function () {
-          var params = new URLSearchParams(window.location.search);
-          var type = params.get('type');
-          var validTypes = ['france', 'togo', 'ambassadeur'];
-          if (type && validTypes.indexOf(type) !== -1) {
-            var container = document.getElementById('engagement-summaries');
-            var cards = document.querySelectorAll('.engagement-summary');
-            cards.forEach(function (card) {
-              if (card.getAttribute('data-type') !== type) {
-                card.style.display = 'none';
-              }
-            });
-            container.style.gridTemplateColumns = '1fr';
-            container.style.maxWidth = '600px';
-          }
-        })();
-      </script>
 
       <p style="text-align:center;margin-top:24px;font-size:0.9rem;color:var(--gris-md);" data-fr="Une question avant de remplir le formulaire ?" data-en="A question before filling out the form?">
         Une question avant de remplir le formulaire ?
