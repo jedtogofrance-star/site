@@ -14,18 +14,7 @@
     .funding-bar-fill { position:absolute; inset:0; background: linear-gradient(90deg, #D21034 0%, #F4C430 50%, #158A42 100%); }
     .funding-bar-mask { position:absolute; top:0; right:0; height:100%; width:100%; background:var(--gris-lt); transition: width 1.6s ease; }
   </style>
-  <script>
-    (function () {
-      var tracks = document.querySelectorAll('.funding-bar-track');
-      tracks.forEach(function (track) {
-        var target = parseInt(track.getAttribute('data-target'), 10) || 0;
-        var mask = track.querySelector('.funding-bar-mask');
-        if (mask) {
-          setTimeout(function () { mask.style.width = (100 - target) + '%'; }, 300);
-        }
-      });
-    })();
-  </script>
+
 </head>
 <body>
 
@@ -105,7 +94,7 @@
     <div class="section" style="padding-top:0;">
       <div class="section-label" data-fr="Ce dont on a besoin" data-en="What we need">Ce dont on a besoin</div>
       <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--noir);margin-bottom:20px;" data-fr="Besoins du projet" data-en="Project needs">Besoins du projet</h3>
-      <div style="max-width:700px;background:var(--gris-lt);border-radius:var(--radius-md);padding:28px 26px;">
+      <div style="max-width:700px;margin:0 auto;background:var(--gris-lt);border-radius:var(--radius-md);padding:28px 26px;">
         <ul style="margin:0 0 4px 20px;color:var(--gris-md);line-height:1.9;">
           <li data-fr="Un trampoline" data-en="A trampoline">Un trampoline</li>
           <li data-fr="Des balançoires" data-en="Swings">Des balançoires</li>
@@ -188,5 +177,17 @@
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tracks = document.querySelectorAll('.funding-bar-track');
+      tracks.forEach(function (track) {
+        var target = parseInt(track.getAttribute('data-target'), 10) || 0;
+        var mask = track.querySelector('.funding-bar-mask');
+        if (mask) {
+          setTimeout(function () { mask.style.width = (100 - target) + '%'; }, 300);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
