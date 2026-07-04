@@ -416,6 +416,7 @@ main { padding-top: var(--nav-h); }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 .action-card {
@@ -427,7 +428,9 @@ main { padding-top: var(--nav-h); }
   transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
+  align-self: stretch;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .card-mini-btn-wrap {
@@ -1148,6 +1151,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 @media (max-width: 960px) {
   .cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -1431,6 +1435,7 @@ footer::before {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
+  align-items: stretch;
 }
 @media (max-width: 1100px) {
   .cards-grid-5 { grid-template-columns: repeat(3, 1fr); }
