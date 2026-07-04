@@ -1125,3 +1125,185 @@ footer {
   .section { padding: 52px 16px; }
   .section-full { padding: 52px 16px; }
 }
+
+/* ============================================================
+   AJOUTS — v7
+   1. Cards-grid 4 colonnes (page bénévoles)
+   2. Timeline horizontale desktop + verticale mobile
+   3. Liquid Glass — surfaces translucides / flou / profondeur
+      (couleurs, polices et disposition inchangées)
+   ============================================================ */
+
+/* ---- 1. Grille 4 colonnes ---- */
+.cards-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 960px) {
+  .cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .cards-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ---- 2. Timeline horizontale (desktop) / verticale (mobile) ---- */
+.timeline-h-wrap {
+  display: none;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+}
+
+.timeline-h-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: timelineScroll 32s linear infinite;
+}
+
+.timeline-h-wrap:hover .timeline-h-track {
+  animation-play-state: paused;
+}
+
+@keyframes timelineScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.timeline-h-item {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 24px 22px;
+  background: var(--blanc);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  border-top: 4px solid transparent;
+}
+
+.timeline-h-item.c-orange { border-top-color: var(--orange); }
+.timeline-h-item.c-jaune  { border-top-color: var(--jaune); }
+.timeline-h-item.c-vert   { border-top-color: var(--vert); }
+
+.timeline-h-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin: 6px 0 12px;
+}
+.timeline-h-item.c-orange .timeline-h-dot { background: var(--orange); }
+.timeline-h-item.c-jaune  .timeline-h-dot { background: var(--jaune); }
+.timeline-h-item.c-vert   .timeline-h-dot { background: var(--vert); }
+
+.timeline-h-item .tl-annee { margin-bottom: 0; }
+.timeline-h-item.c-orange .tl-annee { color: var(--orange); }
+.timeline-h-item.c-jaune  .tl-annee { color: var(--jaune-dk); }
+.timeline-h-item.c-vert   .tl-annee { color: var(--vert); }
+
+@media (min-width: 961px) {
+  .timeline-h-wrap { display: block; }
+  .timeline-v-wrap { display: none; }
+}
+
+/* ============================================================
+   3. LIQUID GLASS — surfaces translucides & profondeur
+   ============================================================ */
+
+:root {
+  --glass-blur: blur(20px) saturate(160%);
+  --glass-bg: rgba(247,243,237,0.68);
+  --glass-bg-strong: rgba(247,243,237,0.82);
+  --glass-border: rgba(255,255,255,0.55);
+  --glass-shadow: 0 8px 32px rgba(17,17,17,0.10), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* Navbar en verre */
+#navbar {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Cartes en verre (actions, projets, agenda, togo, formulaires) */
+.action-card,
+.projet-card,
+.agenda-card,
+.togo-card,
+.social-pill,
+.agenda-h-item,
+.timeline-h-item {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+.action-card:hover,
+.projet-card:hover,
+.agenda-card:hover {
+  box-shadow: 0 16px 44px rgba(17,17,17,0.14), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* Icônes de cartes : légère transparence cohérente */
+.card-icon {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Onglets : conteneur en verre léger */
+.tabs-nav {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Boutons : reflet "liquide" subtil au survol */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 55%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+.btn-outline::before,
+.btn-secondary::before { opacity: 0.15; }
+
+/* Boîte vidéo, bandeaux dons/héros : légère brillance interne */
+#video-container,
+.don-banner-inner,
+.page-hero-inner {
+  position: relative;
+}
+
+.video-caption {
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  background: rgba(0,0,0,0.5);
+}
+
+/* Footer : liseré lumineux façon verre en haut */
+footer {
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+}
+
+/* Compatibilité navigateurs sans backdrop-filter : garder un fond lisible */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  #navbar { background: var(--blanc); }
+  .action-card, .projet-card, .agenda-card, .togo-card, .social-pill, .timeline-h-item {
+    background: var(--blanc);
+  }
+}
