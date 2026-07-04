@@ -1161,6 +1161,11 @@ footer {
   gap: 32px;
   width: max-content;
   animation: timelineScroll 32s linear infinite;
+  animation-play-state: paused;
+}
+
+.timeline-h-track.is-playing {
+  animation-play-state: running;
 }
 
 .timeline-h-wrap:hover .timeline-h-track {
