@@ -8,6 +8,7 @@
   <link rel="icon" href="img/favicon.ico" />
   <link rel="apple-touch-icon" href="img/favicon-180.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
     .form-group { margin-bottom: 20px; }
     .form-group label { display: block; font-family: var(--font-display); font-size: 0.88rem; font-weight: 600; color: var(--noir); margin-bottom: 6px; }
@@ -130,40 +131,7 @@
             <div class="section-label" data-fr="Formulaire de contact" data-en="Contact form">Formulaire de contact</div>
             <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--noir);margin-bottom:24px;" data-fr="Envoyez-nous un message" data-en="Send us a message">Envoyez-nous un message</h3>
 
-            <!-- NOTE: connecter ce formulaire à un service (Formspree, Netlify Forms, etc.) -->
-            <div id="contact-form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label data-fr="Prénom" data-en="First name">Prénom</label>
-                  <input type="text" id="prenom" data-fr-placeholder="Votre prénom" data-en-placeholder="Your first name" placeholder="Votre prénom" />
-                </div>
-                <div class="form-group">
-                  <label data-fr="Nom" data-en="Last name">Nom</label>
-                  <input type="text" id="nom" data-fr-placeholder="Votre nom" data-en-placeholder="Your last name" placeholder="Votre nom" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label data-fr="Email" data-en="Email">Email</label>
-                <input type="email" id="email" data-fr-placeholder="votre@email.com" data-en-placeholder="your@email.com" placeholder="votre@email.com" />
-              </div>
-              <div class="form-group">
-                <label data-fr="Objet" data-en="Subject">Objet</label>
-                <select id="objet">
-                  <option value="" data-fr="Choisir un objet..." data-en="Choose a subject...">Choisir un objet...</option>
-                  <option value="don" data-fr="Faire un don" data-en="Make a donation">Faire un don</option>
-                  <option value="benevole" data-fr="Devenir bénévole" data-en="Become a volunteer">Devenir bénévole</option>
-                  <option value="partenaire" data-fr="Devenir partenaire" data-en="Become a partner">Devenir partenaire</option>
-                  <option value="info" data-fr="Demande d'informations" data-en="Information request">Demande d'informations</option>
-                  <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label data-fr="Message" data-en="Message">Message</label>
-                <textarea id="message" data-fr-placeholder="Votre message..." data-en-placeholder="Your message..." placeholder="Votre message..."></textarea>
-              </div>
-              <button onclick="submitForm()" class="btn btn-primary" style="width:100%;justify-content:center;" data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
-              <p style="font-size:0.8rem;color:var(--gris-md);margin-top:10px;text-align:center;" data-fr="Nous vous répondons dans les 48h" data-en="We reply within 48 hours">Nous vous répondons dans les 48h</p>
-            </div>
+            <iframe data-tally-src="https://tally.so/embed/ODy46a?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="836" frameborder="0" marginheight="0" marginwidth="0" title="Contact"></iframe>
           </div>
         </div>
 
@@ -215,22 +183,5 @@
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    // Formulaire — À connecter à Formspree ou Netlify Forms
-    // Remplacer l'action par votre endpoint
-    function submitForm() {
-      const prenom = document.getElementById('prenom').value;
-      const nom = document.getElementById('nom').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      if (!prenom || !email || !message) {
-        alert('Veuillez remplir tous les champs obligatoires.');
-        return;
-      }
-      // TODO: connecter à Formspree / Netlify Forms / EmailJS
-      // Exemple Formspree: fetch('https://formspree.io/f/VOTRE_ID', { method:'POST', body: new FormData(...) })
-      window.location.href = 'mailto:infojedtogo@gmail.com?subject=Contact JED France&body=' + encodeURIComponent(message);
-    }
-  </script>
 </body>
 </html>
