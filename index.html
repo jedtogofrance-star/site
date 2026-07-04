@@ -233,137 +233,130 @@
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- POPUP AGENDA -->
-  <div id="agenda-popup-overlay" class="agenda-popup-overlay">
-    <div class="agenda-popup-box">
-      <button id="agenda-popup-close" class="agenda-popup-close" aria-label="Fermer">✕</button>
-      <div class="section-label" data-fr="Agenda" data-en="Agenda">Agenda</div>
-      <h2 class="agenda-popup-title" data-fr="Prochains événements" data-en="Upcoming events">Prochains événements</h2>
-      <div class="agenda-popup-grid">
-        <div class="agenda-card t-vert">
-          <div class="agenda-date-box" style="background:var(--vert-lt);">
-            <div><div class="date-num" style="color:var(--vert);">14</div><div class="date-mois">JUL</div></div>
-            <div>
-              <div style="font-family:var(--font-display);font-weight:600;color:var(--noir);font-size:0.95rem;" data-fr="Camp chantier Togo 2026" data-en="Togo Workcamp 2026">Camp chantier Togo 2026</div>
-              <div style="font-size:0.82rem;color:var(--gris-md);">Lomé, Togo</div>
-            </div>
-          </div>
-          <div class="agenda-body">
-            <p class="agenda-desc" data-fr="2 semaines de bénévolat sur le terrain au Togo avec l'équipe JED." data-en="2 weeks of volunteering in the field in Togo with the JED team.">2 semaines de bénévolat sur le terrain au Togo avec l'équipe JED.</p>
-            <a href="agenda.html" class="agenda-lien" style="color:var(--vert);" data-fr="Voir les détails →" data-en="See details →">Voir les détails →</a>
-          </div>
+  <!-- NOTIFICATION AGENDA -->
+  <div id="agenda-toast" class="agenda-toast">
+    <div class="agenda-toast-card">
+      <button id="agenda-toast-collapse" class="agenda-toast-collapse" aria-label="Réduire">—</button>
+      <div class="agenda-toast-label" data-fr="Prochain événement" data-en="Next event">Prochain événement</div>
+      <div class="agenda-toast-body">
+        <div class="agenda-toast-date">
+          <div class="date-num" style="color:var(--vert);">14</div>
+          <div class="date-mois">JUL</div>
         </div>
-        <div class="agenda-card t-evenement">
-          <div class="agenda-date-box">
-            <div><div class="date-num">20</div><div class="date-mois">SEP</div></div>
-            <div>
-              <div style="font-family:var(--font-display);font-weight:600;color:var(--noir);font-size:0.95rem;" data-fr="Soirée de gala" data-en="Gala evening">Soirée de gala</div>
-              <div style="font-size:0.82rem;color:var(--gris-md);">Lyon, France</div>
-            </div>
-          </div>
-          <div class="agenda-body">
-            <p class="agenda-desc" data-fr="Soirée de gala au profit de la Maison d'accueil des enfants." data-en="Gala evening in aid of the Children's Welcome House.">Soirée de gala au profit de la Maison d'accueil des enfants.</p>
-            <a href="agenda.html" class="agenda-lien" data-fr="Voir les détails →" data-en="See details →">Voir les détails →</a>
-          </div>
-        </div>
-        <div class="agenda-card t-vert">
-          <div class="agenda-date-box" style="background:var(--vert-lt);">
-            <div><div class="date-num" style="color:var(--vert);">10</div><div class="date-mois">OCT</div></div>
-            <div>
-              <div style="font-family:var(--font-display);font-weight:600;color:var(--noir);font-size:0.95rem;" data-fr="Journée bénévoles" data-en="Volunteer Day">Journée bénévoles</div>
-              <div style="font-size:0.82rem;color:var(--gris-md);">Paris, France</div>
-            </div>
-          </div>
-          <div class="agenda-body">
-            <p class="agenda-desc" data-fr="Rencontre des bénévoles JED France, présentation des projets et organisation des actions à venir." data-en="JED France volunteer meeting, project presentations and planning upcoming actions.">Rencontre des bénévoles JED France, présentation des projets et organisation des actions à venir.</p>
-            <a href="agenda.html" class="agenda-lien" style="color:var(--vert);" data-fr="Voir les détails →" data-en="See details →">Voir les détails →</a>
-          </div>
+        <div>
+          <div class="agenda-toast-titre" data-fr="Camp chantier Togo 2026" data-en="Togo Workcamp 2026">Camp chantier Togo 2026</div>
+          <div class="agenda-toast-lieu">Lomé, Togo</div>
         </div>
       </div>
-      <div style="text-align:center;margin-top:28px;">
-        <a href="agenda.html" class="btn btn-outline" data-fr="Voir tout l'agenda" data-en="View full agenda">Voir tout l'agenda</a>
-      </div>
+      <a href="agenda.html" class="btn btn-outline agenda-toast-btn" data-fr="Voir l'agenda" data-en="View agenda">Voir l'agenda</a>
     </div>
+    <button id="agenda-toast-badge" class="agenda-toast-badge" aria-label="Afficher le prochain événement">📅</button>
   </div>
 
   <style>
-    .agenda-popup-overlay {
-      display: none;
+    .agenda-toast {
       position: fixed;
-      inset: 0;
-      background: rgba(20,18,16,0.55);
+      bottom: 24px;
+      right: 24px;
       z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
     }
-    .agenda-popup-overlay.is-visible { display: flex; }
-    .agenda-popup-box {
+    .agenda-toast-card {
+      display: none;
       position: relative;
       background: var(--blanc);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      max-width: 980px;
-      width: 100%;
-      max-height: 88vh;
-      overflow-y: auto;
-      padding: 40px;
       box-shadow: var(--shadow-lg);
-      animation: agendaPopupIn 0.35s ease;
+      padding: 20px 22px;
+      width: 280px;
+      animation: agendaToastIn 0.3s ease;
     }
-    @keyframes agendaPopupIn {
-      from { opacity: 0; transform: translateY(16px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    .agenda-toast-card.is-visible { display: block; }
+    @keyframes agendaToastIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .agenda-popup-title {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
+    .agenda-toast-label {
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--noir);
-      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--orange);
+      margin-bottom: 10px;
     }
-    .agenda-popup-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .agenda-toast-body {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
     }
-    .agenda-popup-close {
+    .agenda-toast-date {
+      background: var(--vert-lt);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .agenda-toast-date .date-num { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1; }
+    .agenda-toast-date .date-mois { font-size: 0.68rem; color: var(--gris-md); text-transform: uppercase; }
+    .agenda-toast-titre { font-family: var(--font-display); font-weight: 600; color: var(--noir); font-size: 0.92rem; }
+    .agenda-toast-lieu { font-size: 0.8rem; color: var(--gris-md); }
+    .agenda-toast-btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 9px 16px; }
+    .agenda-toast-collapse {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--blanc);
-      color: var(--noir);
-      font-size: 1rem;
-      cursor: pointer;
+      color: var(--gris-md);
+      font-size: 0.8rem;
       line-height: 1;
+      cursor: pointer;
     }
-    .agenda-popup-close:hover { background: var(--gris-lt); }
-    @media (max-width: 900px) {
-      .agenda-popup-grid { grid-template-columns: 1fr; }
-      .agenda-popup-box { padding: 28px 20px; }
+    .agenda-toast-collapse:hover { background: var(--gris-lt); }
+    .agenda-toast-badge {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--blanc);
+      border: none;
+      font-size: 1.4rem;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+    }
+    .agenda-toast-badge.is-visible { display: flex; }
+    @media (max-width: 480px) {
+      .agenda-toast { bottom: 16px; right: 16px; }
+      .agenda-toast-card { width: calc(100vw - 32px); }
     }
   </style>
   <script>
     (function () {
-      var overlay = document.getElementById('agenda-popup-overlay');
-      var closeBtn = document.getElementById('agenda-popup-close');
-      if (!overlay || !closeBtn) return;
+      var card = document.querySelector('#agenda-toast .agenda-toast-card');
+      var badge = document.getElementById('agenda-toast-badge');
+      var collapseBtn = document.getElementById('agenda-toast-collapse');
+      if (!card || !badge || !collapseBtn) return;
 
-      function openPopup() { overlay.classList.add('is-visible'); }
-      function closePopup() { overlay.classList.remove('is-visible'); }
+      function showCard() {
+        card.classList.add('is-visible');
+        badge.classList.remove('is-visible');
+      }
+      function collapseCard() {
+        card.classList.remove('is-visible');
+        badge.classList.add('is-visible');
+      }
 
-      setTimeout(openPopup, 3000);
+      setTimeout(showCard, 3000);
 
-      closeBtn.addEventListener('click', closePopup);
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closePopup();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closePopup();
-      });
+      collapseBtn.addEventListener('click', collapseCard);
+      badge.addEventListener('click', showCard);
     })();
   </script>
 </body>
