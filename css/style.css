@@ -425,6 +425,15 @@ main { padding-top: var(--nav-h); }
   padding: 28px 24px;
   border-top: 4px solid transparent;
   transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-mini-btn-wrap {
+  margin-top: auto;
+  padding-top: 16px;
+  text-align: center;
 }
 
 .action-card:hover {
@@ -1147,29 +1156,20 @@ footer {
   .cards-grid-4 { grid-template-columns: 1fr; }
 }
 
-/* ---- 2. Timeline horizontale (desktop) / verticale (mobile) ---- */
+/* ---- 2. Timeline horizontale (desktop) / verticale (mobile) — statique, scroll manuel ---- */
 .timeline-h-wrap {
   display: none;
-  overflow: hidden;
   position: relative;
-  mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .timeline-h-track {
   display: flex;
   gap: 32px;
   width: max-content;
-  animation: timelineScroll 32s linear infinite;
-  animation-play-state: paused;
-}
-
-.timeline-h-track.is-playing {
-  animation-play-state: running;
-}
-
-.timeline-h-wrap:hover .timeline-h-track {
-  animation-play-state: paused;
 }
 
 @keyframes timelineScroll {
@@ -1404,12 +1404,23 @@ footer::before {
 
 @media (max-width: 800px) {
   .projet-layout-grid { grid-template-columns: 1fr; gap: 32px; }
-  .projet-gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .besoins-box { padding: 22px 18px; }
+  .projet-gallery-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    gap: 12px;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .projet-gallery-grid > div {
+    flex: 0 0 140px;
+    width: 140px;
+    font-size: 0.7rem !important;
+  }
 }
 
 @media (max-width: 480px) {
-  .projet-gallery-grid { grid-template-columns: 1fr; }
   .timeline-h-wrap { padding: 0 12px; }
   .timeline-h-item { width: 240px; }
 }
@@ -1459,41 +1470,9 @@ footer::before {
 
 /* ---- Mini boutons uniformes dans les cartes ---- */
 .card-mini-btn {
-  font-size: 0.85rem;
-  padding: 9px 20px;
-}
-
-/* ---- Séparateur de boucle timeline ---- */
-.timeline-h-separator {
-  width: 60px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.timeline-h-separator::before,
-.timeline-h-separator::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 0;
-  border-left: 2px dashed var(--border);
-}
-.timeline-h-separator::before { left: 18px; }
-.timeline-h-separator::after { right: 18px; }
-.timeline-h-separator span {
-  background: var(--blanc);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gris-md);
-  font-size: 1rem;
-  z-index: 1;
+  font-size: 0.8rem;
+  padding: 9px 16px;
+  white-space: nowrap;
 }
 
 /* ---- Logo JED Togo dans le Hero ---- */
@@ -1544,4 +1523,25 @@ footer::before {
   font-weight: 600;
   color: var(--gris-md);
   white-space: nowrap;
+}
+
+/* ---- Sections texte + image, responsive ---- */
+.text-image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .text-image-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ---- 2 cartes CTA France/Togo, responsive ---- */
+.cta-2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 700px) {
+  .cta-2-grid { grid-template-columns: 1fr; }
 }
