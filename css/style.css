@@ -1307,3 +1307,104 @@ footer::before {
     background: var(--blanc);
   }
 }
+
+/* ============================================================
+   AJOUTS — v8
+   1. Interrupteur iOS (France / Togo)
+   2. Timeline horizontale full-bleed
+   3. Responsive pages projet détaillées
+   ============================================================ */
+
+/* ---- 1. Interrupteur iOS ---- */
+.ios-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ios-toggle-label {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gris-md);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.ios-toggle-label.active[data-side="france"] { color: var(--orange); }
+.ios-toggle-label.active[data-side="togo"]   { color: var(--vert); }
+
+.ios-toggle {
+  position: relative;
+  width: 56px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--orange);
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.ios-toggle.is-togo { background: var(--vert); }
+
+.ios-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--blanc);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: transform var(--transition);
+}
+
+.ios-toggle.is-togo .ios-toggle-knob {
+  transform: translateX(24px);
+}
+
+/* ---- 2. Timeline full-bleed ---- */
+.timeline-h-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0 24px;
+}
+
+/* ---- 3. Responsive pages projet détaillées ---- */
+.projet-layout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.projet-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.besoins-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--gris-lt);
+  border-radius: var(--radius-md);
+  padding: 28px 26px;
+}
+
+@media (max-width: 800px) {
+  .projet-layout-grid { grid-template-columns: 1fr; gap: 32px; }
+  .projet-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .besoins-box { padding: 22px 18px; }
+}
+
+@media (max-width: 480px) {
+  .projet-gallery-grid { grid-template-columns: 1fr; }
+  .timeline-h-wrap { padding: 0 12px; }
+  .timeline-h-item { width: 240px; }
+}
