@@ -8,6 +8,24 @@
   <link rel="icon" href="img/favicon.ico" />
   <link rel="apple-touch-icon" href="img/favicon-180.png" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .funding-bar-track { position:relative; height:14px; border-radius:999px; overflow:hidden; background:var(--gris-lt); margin-top:6px; }
+    .funding-bar-fill { position:absolute; inset:0; background: linear-gradient(90deg, #D21034 0%, #F4C430 50%, #158A42 100%); }
+    .funding-bar-mask { position:absolute; top:0; right:0; height:100%; width:100%; background:var(--gris-lt); transition: width 1.6s ease; }
+  </style>
+  <script>
+    (function () {
+      var tracks = document.querySelectorAll('.funding-bar-track');
+      tracks.forEach(function (track) {
+        var target = parseInt(track.getAttribute('data-target'), 10) || 0;
+        var mask = track.querySelector('.funding-bar-mask');
+        if (mask) {
+          setTimeout(function () { mask.style.width = (100 - target) + '%'; }, 300);
+        }
+      });
+    })();
+  </script>
 </head>
 <body>
 
@@ -79,6 +97,37 @@
           <div style="aspect-ratio:4/3;background:var(--gris-lt);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--gris-md);font-size:0.85rem;">📷 Photo à venir</div>
           <div style="aspect-ratio:4/3;background:var(--gris-lt);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--gris-md);font-size:0.85rem;">📷 Photo à venir</div>
           <div style="aspect-ratio:4/3;background:var(--gris-lt);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--gris-md);font-size:0.85rem;">📷 Photo à venir</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BESOINS DU PROJET -->
+    <div class="section" style="padding-top:0;">
+      <div class="section-label" data-fr="Ce dont on a besoin" data-en="What we need">Ce dont on a besoin</div>
+      <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--noir);margin-bottom:20px;" data-fr="Besoins du projet" data-en="Project needs">Besoins du projet</h3>
+      <div style="max-width:700px;background:var(--gris-lt);border-radius:var(--radius-md);padding:28px 26px;">
+        <ul style="margin:0 0 4px 20px;color:var(--gris-md);line-height:1.9;">
+          <li data-fr="Un trampoline" data-en="A trampoline">Un trampoline</li>
+          <li data-fr="Des balançoires" data-en="Swings">Des balançoires</li>
+          <li data-fr="Des toboggans" data-en="Slides">Des toboggans</li>
+          <li data-fr="Un petit terrain de football" data-en="A small football pitch">Un petit terrain de football</li>
+          <li data-fr="Une clôture de sécurité" data-en="A safety fence">Une clôture de sécurité</li>
+          <li data-fr="Un revêtement de sol adapté" data-en="Suitable ground surface">Un revêtement de sol adapté</li>
+        </ul>
+        <div style="margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.88rem;margin-bottom:2px;">
+            <span style="font-weight:600;color:var(--noir);" data-fr="Financement" data-en="Funding">Financement</span>
+            <span style="color:var(--gris-md);" data-fr="Objectif : 3 550 000 FCFA (~5 400 €)" data-en="Goal: 3 550 000 FCFA (~5 400 €)">Objectif : 3 550 000 FCFA (~5 400 €)</span>
+          </div>
+          <div class="funding-bar-track" data-target="50">
+            <div class="funding-bar-fill"></div>
+            <div class="funding-bar-mask"></div>
+          </div>
+          <div style="text-align:right;font-size:0.8rem;color:var(--gris-md);margin-top:6px;" data-fr="50% atteint (mise à jour hebdomadaire)" data-en="50% reached (updated weekly)">50% atteint (mise à jour hebdomadaire)</div>
+        </div>
+        <div style="margin-top:22px;background:var(--blanc);border-radius:var(--radius-sm);padding:18px 20px;text-align:center;">
+          <p style="color:var(--noir);font-weight:600;margin-bottom:12px;line-height:1.6;" data-fr="🎈 Chaque don rapproche les enfants de la MDE de leur trampoline, leurs balançoires et leur terrain de jeux." data-en="🎈 Every donation brings the MDE children closer to their trampoline, swings and playground.">🎈 Chaque don rapproche les enfants de la MDE de leur trampoline, leurs balançoires et leur terrain de jeux.</p>
+          <a href="https://www.helloasso.com/associations/jed-france" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;" data-fr="Faire un don →" data-en="Donate →">Faire un don →</a>
         </div>
       </div>
     </div>

@@ -116,7 +116,7 @@
           <div id="video-container" data-video-url="https://res.cloudinary.com/dztxdthmd/video/upload/v1783170116/VIDEO_SITE_JED_TOGO_Personnalis%C3%A9_qkfnyw.mp4">
             <img class="video-thumb" src="https://res.cloudinary.com/dztxdthmd/video/upload/so_0/v1783170116/VIDEO_SITE_JED_TOGO_Personnalis%C3%A9_qkfnyw.jpg" alt="Message du Président de JED France" />
             <div class="video-overlay">
-              <div class="play-circle">▶</div>
+              <div class="play-circle" style="transform:scale(0.6);">▶</div>
               <div class="video-caption" data-fr="Message du Président — 1 à 2 min" data-en="President's message — 1 to 2 min">Message du Président — 1 à 2 min</div>
             </div>
           </div>
@@ -132,13 +132,13 @@
         JED France est le relais de JED Togo : nous collectons des fonds et des dons, sensibilisons le public et mobilisons des bénévoles en France — pour soutenir des projets concrets menés sur le terrain, au Togo.
       </p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-        <a href="projets.html#actions-france" class="action-card c-orange slide-up delay-1" style="text-decoration:none;display:block;">
+        <a href="projets.html?tab=france" class="action-card c-orange slide-up delay-1" style="text-decoration:none;display:block;">
           <div class="card-icon">🇫🇷</div>
           <h3 data-fr="Nos actions en France" data-en="Our actions in France">Nos actions en France</h3>
           <p data-fr="Collecte de dons, événements, bénévoles, parrainage — découvrez comment on agit depuis la France." data-en="Donation drives, events, volunteers, sponsorship — discover how we act from France.">Collecte de dons, événements, bénévoles, parrainage — découvrez comment on agit depuis la France.</p>
           <span class="card-link" data-fr="Voir nos actions →" data-en="See our actions →">Voir nos actions →</span>
         </a>
-        <a href="projets.html#togo" class="action-card c-vert slide-up delay-2" style="text-decoration:none;display:block;">
+        <a href="projets.html?tab=togo" class="action-card c-vert slide-up delay-2" style="text-decoration:none;display:block;">
           <div class="card-icon">🇹🇬</div>
           <h3 data-fr="Projets au Togo" data-en="Projects in Togo">Projets au Togo</h3>
           <p data-fr="Maison d'accueil, eau potable, éducation, santé — découvrez les projets soutenus sur le terrain." data-en="Welcome house, clean water, education, health — discover the projects supported on the ground.">Maison d'accueil, eau potable, éducation, santé — découvrez les projets soutenus sur le terrain.</p>
@@ -267,8 +267,8 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-lg);
-      padding: 20px 22px;
-      width: 280px;
+      padding: 28px 30px;
+      width: 360px;
       animation: agendaToastIn 0.3s ease;
     }
     .agenda-toast-card.is-visible { display: block; }
@@ -277,42 +277,42 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .agenda-toast-label {
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--orange);
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
     .agenda-toast-body {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
     .agenda-toast-date {
       background: var(--vert-lt);
       border-radius: var(--radius-sm);
-      padding: 6px 10px;
+      padding: 10px 14px;
       text-align: center;
       flex-shrink: 0;
     }
-    .agenda-toast-date .date-num { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1; }
-    .agenda-toast-date .date-mois { font-size: 0.68rem; color: var(--gris-md); text-transform: uppercase; }
-    .agenda-toast-titre { font-family: var(--font-display); font-weight: 600; color: var(--noir); font-size: 0.92rem; }
-    .agenda-toast-lieu { font-size: 0.8rem; color: var(--gris-md); }
-    .agenda-toast-btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 9px 16px; }
+    .agenda-toast-date .date-num { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; line-height: 1; }
+    .agenda-toast-date .date-mois { font-size: 0.78rem; color: var(--gris-md); text-transform: uppercase; }
+    .agenda-toast-titre { font-family: var(--font-display); font-weight: 600; color: var(--noir); font-size: 1.1rem; }
+    .agenda-toast-lieu { font-size: 0.9rem; color: var(--gris-md); }
+    .agenda-toast-btn { width: 100%; justify-content: center; font-size: 0.95rem; padding: 12px 18px; }
     .agenda-toast-collapse {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 24px;
-      height: 24px;
+      top: 14px;
+      right: 14px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--blanc);
       color: var(--gris-md);
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       line-height: 1;
       cursor: pointer;
     }
@@ -321,20 +321,33 @@
       display: none;
       align-items: center;
       justify-content: center;
-      width: 52px;
-      height: 52px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       background: var(--orange);
       color: var(--blanc);
       border: none;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       box-shadow: var(--shadow-lg);
       cursor: pointer;
     }
     .agenda-toast-badge.is-visible { display: flex; }
     @media (max-width: 480px) {
       .agenda-toast { bottom: 16px; right: 16px; }
-      .agenda-toast-card { width: calc(100vw - 32px); }
+      .agenda-toast-card {
+        width: calc(100vw - 32px);
+        padding: 20px 22px;
+      }
+      .agenda-toast-label { font-size: 0.72rem; margin-bottom: 10px; }
+      .agenda-toast-body { gap: 12px; margin-bottom: 14px; }
+      .agenda-toast-date { padding: 6px 10px; }
+      .agenda-toast-date .date-num { font-size: 1.2rem; }
+      .agenda-toast-date .date-mois { font-size: 0.68rem; }
+      .agenda-toast-titre { font-size: 0.92rem; }
+      .agenda-toast-lieu { font-size: 0.8rem; }
+      .agenda-toast-btn { font-size: 0.85rem; padding: 9px 16px; }
+      .agenda-toast-collapse { width: 24px; height: 24px; font-size: 0.8rem; top: 10px; right: 10px; }
+      .agenda-toast-badge { width: 52px; height: 52px; font-size: 1.4rem; }
     }
   </style>
   <script>
