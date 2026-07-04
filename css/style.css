@@ -428,8 +428,6 @@ main { padding-top: var(--nav-h); }
   transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
-  align-self: stretch;
-  height: 100%;
   box-sizing: border-box;
 }
 
