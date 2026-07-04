@@ -57,7 +57,7 @@
 
     <!-- QUI SOMMES-NOUS -->
     <div class="section">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="text-image-grid">
         <div class="slide-left">
           <div class="section-label" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
           <h2 class="section-title" data-fr="Une association apolitique au service du développement humain" data-en="An apolitical association serving human development">Une association apolitique au service du développement humain</h2>
@@ -115,7 +115,7 @@
             <img class="video-thumb" src="https://res.cloudinary.com/dztxdthmd/video/upload/so_0/v1783170116/VIDEO_SITE_JED_TOGO_Personnalis%C3%A9_qkfnyw.jpg" alt="Message du Président" />
             <div class="video-overlay">
               <div class="play-circle" style="transform:scale(0.6);">▶</div>
-              <div class="video-caption" data-fr="Message du Président — 1 à 2 min" data-en="President's message — 1 to 2 min">Message du Président — 1 à 2 min</div>
+              <div class="video-caption" data-fr="Message du Président" data-en="President's message">Message du Président</div>
             </div>
           </div>
         </div>
@@ -160,38 +160,6 @@
             <div class="timeline-h-dot"></div>
             <div class="tl-titre" data-fr="Création de JED France" data-en="JED France created">Création de JED France</div>
             <div class="tl-texte" data-fr="Lancement de la branche française pour renforcer les liens entre la France et le Togo, amplifier l'impact et mobiliser de nouveaux soutiens." data-en="Launch of the French branch to strengthen ties between France and Togo, amplify impact and mobilize new support.">Lancement de la branche française pour renforcer les liens entre la France et le Togo, amplifier l'impact et mobiliser de nouveaux soutiens.</div>
-          </div>
-          <!-- set 2 (duplicate for seamless loop) -->
-          <div class="timeline-h-separator" aria-hidden="true"><span>↻</span></div>
-          <div class="timeline-h-item c-orange" aria-hidden="true">
-            <div class="tl-annee">1999</div>
-            <div class="timeline-h-dot"></div>
-            <div class="tl-titre">Fondation de JED Togo</div>
-            <div class="tl-texte">Création de l'association à Lomé, Togo, avec pour mission d'accompagner les populations vers un développement durable et apolitique.</div>
-          </div>
-          <div class="timeline-h-item c-orange" aria-hidden="true">
-            <div class="tl-annee">2005</div>
-            <div class="timeline-h-dot"></div>
-            <div class="tl-titre">Premiers camps chantiers internationaux</div>
-            <div class="tl-texte">Lancement des camps chantiers accueillant des bénévoles du monde entier pour des projets concrets sur le terrain.</div>
-          </div>
-          <div class="timeline-h-item c-jaune" aria-hidden="true">
-            <div class="tl-annee">2010</div>
-            <div class="timeline-h-dot"></div>
-            <div class="tl-titre">Développement des programmes sociaux</div>
-            <div class="tl-texte">Lancement des programmes d'inclusion des femmes et veuves, de soutien scolaire et d'accès à l'eau potable.</div>
-          </div>
-          <div class="timeline-h-item c-jaune" aria-hidden="true">
-            <div class="tl-annee">2018</div>
-            <div class="timeline-h-dot"></div>
-            <div class="tl-titre">Ouverture de la Maison d'accueil</div>
-            <div class="tl-texte">Création de la Maison d'accueil des Enfants Orphelins et Vulnérables (MDE) à Adidogomé, Lomé — un havre pour les enfants en difficulté.</div>
-          </div>
-          <div class="timeline-h-item c-vert" aria-hidden="true">
-            <div class="tl-annee">2024</div>
-            <div class="timeline-h-dot"></div>
-            <div class="tl-titre">Création de JED France</div>
-            <div class="tl-texte">Lancement de la branche française pour renforcer les liens entre la France et le Togo, amplifier l'impact et mobiliser de nouveaux soutiens.</div>
           </div>
         </div>
       </div>
@@ -310,23 +278,5 @@
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    (function () {
-      var track = document.querySelector('.timeline-h-track');
-      if (!track || !('IntersectionObserver' in window)) {
-        if (track) track.classList.add('is-playing');
-        return;
-      }
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            track.classList.add('is-playing');
-            observer.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
-      observer.observe(track);
-    })();
-  </script>
 </body>
 </html>
