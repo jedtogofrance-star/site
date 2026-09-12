@@ -1650,7 +1650,6 @@ footer::before {
   will-change: transform;
   backface-visibility: hidden;
 }
-.partners-h-wrap:hover .partners-h-track { animation-play-state: paused; }
 
 .partner-logo-item {
   flex-shrink: 0;
