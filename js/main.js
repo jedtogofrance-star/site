@@ -192,6 +192,82 @@ function initTabs() {
 }
 
 // ----------------------------------------------------------
+// GALERIE LIGHTBOX
+// ----------------------------------------------------------
+function initLightbox() {
+  const groups = document.querySelectorAll('[data-lightbox-group]');
+  if (!groups.length) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Fermer">✕</button>
+    <button class="lightbox-prev" aria-label="Précédent">‹</button>
+    <img src="" alt="" />
+    <button class="lightbox-next" aria-label="Suivant">›</button>
+  `;
+  document.body.appendChild(overlay);
+
+  const imgEl = overlay.querySelector('img');
+  const closeBtn = overlay.querySelector('.lightbox-close');
+  const prevBtn = overlay.querySelector('.lightbox-prev');
+  const nextBtn = overlay.querySelector('.lightbox-next');
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function show(index) {
+    currentIndex = (index + currentImages.length) % currentImages.length;
+    imgEl.src = currentImages[currentIndex].src;
+    imgEl.alt = currentImages[currentIndex].alt || '';
+  }
+
+  function open(images, index) {
+    currentImages = images;
+    show(index);
+    overlay.classList.add('active');
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    imgEl.src = '';
+  }
+
+  groups.forEach(group => {
+    const images = Array.from(group.querySelectorAll('img[data-lightbox]'));
+    images.forEach((img, i) => {
+      img.addEventListener('click', () => open(images, i));
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => show(currentIndex - 1));
+  nextBtn.addEventListener('click', () => show(currentIndex + 1));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(currentIndex - 1);
+    if (e.key === 'ArrowRight') show(currentIndex + 1);
+  });
+}
+
+// ----------------------------------------------------------
+// CARROUSEL PHOTO
+// ----------------------------------------------------------
+function initPhotoCarousels() {
+  document.querySelectorAll('.photo-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.photo-carousel-track');
+    const prev = carousel.querySelector('.photo-carousel-prev');
+    const next = carousel.querySelector('.photo-carousel-next');
+    if (!track) return;
+    const scrollAmount = () => (track.querySelector('img')?.offsetWidth || 280) + 16;
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+  });
+}
+
+// ----------------------------------------------------------
 // INIT GLOBAL
 // ----------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -200,6 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initVideoPlayer();
   initTabs();
+  initLightbox();
+  initPhotoCarousels();
   setLangue(langue);
 
   // Boutons de langue
