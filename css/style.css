@@ -751,20 +751,16 @@ main { padding-top: var(--nav-h); }
   display: flex;
   align-items: center;
   gap: 14px;
+  background: var(--gris-lt);
 }
-
-.agenda-card.t-benevole .agenda-date-box { background: var(--vert-lt); }
-.agenda-card.t-evenement .agenda-date-box { background: var(--orange-lt); }
 
 .date-num {
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
+  color: var(--orange);
 }
-
-.agenda-card.t-benevole .date-num { color: var(--vert); }
-.agenda-card.t-evenement .date-num { color: var(--orange); }
 
 .date-mois {
   font-family: var(--font-display);
@@ -807,8 +803,7 @@ main { padding-top: var(--nav-h); }
   transition: gap var(--transition);
 }
 
-.agenda-card.t-benevole .agenda-lien { color: var(--vert); }
-.agenda-card.t-evenement .agenda-lien { color: var(--orange); }
+.agenda-lien { color: var(--orange); }
 .agenda-lien:hover { gap: 10px; }
 
 /* ----------------------------------------------------------
