@@ -39,7 +39,7 @@ const JED_CONFIG = {
   // ----------------------------------------------------------
   video_president: {
     url: "",             // Mettre ici l'URL YouTube embed ex: https://www.youtube.com/embed/XXXXXXX
-    thumbnail: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80",
+    thumbnail: "img/togo/05-apropos-equipe-jed-togo.jpg",
     titre_fr: "Message du Président",
     titre_en: "Message from the President",
     description_fr: "Découvrez la vision et les engagements de JED France",
@@ -62,7 +62,7 @@ const JED_CONFIG = {
   images: {
     hero: "img/togo/01-accueil-hero-joie.jpg",
     a_propos: "img/togo/05-apropos-equipe-jed-togo.jpg",
-    projets: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80",
+    projets: "img/togo/12-togo-animation-enfants.jpg",
     don: "img/togo/15-don-en-action.jpg",
     benevoles: "img/togo/02-benevoles-danse-village.jpg",
   },
@@ -125,7 +125,7 @@ const JED_CONFIG = {
       description_fr: "Construction et gestion d'une maison d'accueil pour les enfants orphelins et vulnérables à Adidogomé, Lomé.",
       description_en: "Construction and management of a welcome house for orphaned and vulnerable children in Adidogomé, Lomé.",
       annee: "2018",
-      image: "img/togo/01-accueil-hero-joie.jpg",
+      image: "img/togo/22-togo-mde-enfants.jpg",
       lien_togo: "https://jedtogo.org/projets/",
       cta_fr: "Voir sur jedtogo.org",
       cta_en: "View on jedtogo.org",
@@ -138,7 +138,7 @@ const JED_CONFIG = {
       description_fr: "Programmes de plantation d'arbres, gestion des écosystèmes forestiers et nettoyage des espaces communautaires.",
       description_en: "Tree planting programmes, forest ecosystem management, and community space clean-up.",
       annee: "2015",
-      image: "https://images.unsplash.com/photo-1542601906897-b50e1d5d8e81?w=800&q=80",
+      image: "img/togo/25-togo-nature-chemin.jpg",
       lien_togo: "https://jedtogo.org/projets/",
       cta_fr: "Voir sur jedtogo.org",
       cta_en: "View on jedtogo.org",
@@ -151,7 +151,7 @@ const JED_CONFIG = {
       description_fr: "Aménagement d'un espace sécurisé pour les enfants de la MDE : trampoline, balançoires, tobogans, terrain de football. Objectif : 3 550 000 FCFA.",
       description_en: "Creating a safe play area for MDE children: trampoline, swings, slides, football pitch. Target: 3,550,000 FCFA.",
       annee: "2026",
-      image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80",
+      image: "img/togo/11-togo-animation-parachute.jpg",
       lien_don: "https://www.helloasso.com/associations/jed-france",
       cta_fr: "Soutenir ce projet",
       cta_en: "Support this project",
@@ -164,7 +164,7 @@ const JED_CONFIG = {
       description_fr: "Campagnes de sensibilisation à la santé, accès aux soins de base et accompagnement des populations rurales.",
       description_en: "Health awareness campaigns, access to basic care, and support for rural communities.",
       annee: "2026",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+      image: "img/togo/23-togo-sante-consultation.jpg",
       lien_don: "https://www.helloasso.com/associations/jed-france",
       cta_fr: "Devenir partenaire",
       cta_en: "Become a partner",
