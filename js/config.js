@@ -60,11 +60,11 @@ const JED_CONFIG = {
   // IMAGES DE FOND (remplacer par vos URLs Cloudinary)
   // ----------------------------------------------------------
   images: {
-    hero: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80",
-    a_propos: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=1600&q=80",
+    hero: "img/togo/01-accueil-hero-joie.jpg",
+    a_propos: "img/togo/05-apropos-equipe-jed-togo.jpg",
     projets: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80",
-    don: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1600&q=80",
-    benevoles: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&q=80",
+    don: "img/togo/15-don-en-action.jpg",
+    benevoles: "img/togo/02-benevoles-danse-village.jpg",
   },
 
   // ----------------------------------------------------------
@@ -125,7 +125,7 @@ const JED_CONFIG = {
       description_fr: "Construction et gestion d'une maison d'accueil pour les enfants orphelins et vulnérables à Adidogomé, Lomé.",
       description_en: "Construction and management of a welcome house for orphaned and vulnerable children in Adidogomé, Lomé.",
       annee: "2018",
-      image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+      image: "img/togo/01-accueil-hero-joie.jpg",
       lien_togo: "https://jedtogo.org/projets/",
       cta_fr: "Voir sur jedtogo.org",
       cta_en: "View on jedtogo.org",
