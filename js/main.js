@@ -156,6 +156,21 @@ function initVideoPlayer() {
       if (match) embedUrl = `https://player.vimeo.com/video/${match[1]}?autoplay=1`;
     }
 
+    // Fichier vidéo direct (ex. Cloudinary) : lecteur HTML5 sans bouton de téléchargement
+    if (!isYoutube && !isVimeo) {
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.disablePictureInPicture = true;
+      video.setAttribute('controlsList', 'nodownload noplaybackrate');
+      video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border-radius:inherit;background:#000;';
+      container.innerHTML = '';
+      container.appendChild(video);
+      return;
+    }
+
     const iframe = document.createElement('iframe');
     iframe.src = embedUrl;
     iframe.allow = 'autoplay; fullscreen; picture-in-picture';
@@ -270,7 +285,17 @@ function initPhotoCarousels() {
 // ----------------------------------------------------------
 // INIT GLOBAL
 // ----------------------------------------------------------
+// ----------------------------------------------------------
+// PROTECTION DES MÉDIAS (clic droit et glisser-déposer)
+// ----------------------------------------------------------
+function initProtectionMedias() {
+  const estMedia = el => el.closest && el.closest('img, video, .page-hero-bg, .lightbox-overlay, #video-container');
+  document.addEventListener('contextmenu', e => { if (estMedia(e.target)) e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (estMedia(e.target)) e.preventDefault(); });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initProtectionMedias();
   initNavbar();
   initAnimations();
   initCounters();

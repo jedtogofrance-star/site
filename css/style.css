@@ -1736,3 +1736,10 @@ footer::before {
 @media (max-width: 480px) {
   .skills-grid-4 { grid-template-columns: 1fr; }
 }
+
+/* Protection des médias : pas de glisser-déposer ni de menu « enregistrer » sur mobile */
+img, video, .page-hero-bg {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
