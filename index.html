@@ -396,7 +396,38 @@
         badge.classList.add('is-visible');
       }
 
-      setTimeout(showCard, 3000);
+      // Prochain événement : lu depuis agenda.html (cartes avec data-date), les événements passés sont ignorés
+      var MOIS = ['JAN','FÉV','MAR','AVR','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
+      var MOIS_EN = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      var toast = document.getElementById('agenda-toast');
+      toast.style.display = 'none';
+      fetch('agenda.html').then(function (r) { return r.text(); }).then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var today = new Date(); today.setHours(0, 0, 0, 0);
+        var next = null, nextDate = null;
+        doc.querySelectorAll('.agenda-card[data-date]').forEach(function (c) {
+          var p = c.getAttribute('data-date').split('-');
+          var d = new Date(+p[0], p[1] - 1, +p[2]);
+          if (d >= today && (!nextDate || d < nextDate)) { next = c; nextDate = d; }
+        });
+        if (!next) return;
+        var titre = next.querySelector('.agenda-date-box > div:nth-child(2) > div:first-child');
+        var lieu = next.querySelector('.agenda-date-box > div:nth-child(2) > div:nth-child(2)');
+        var en = typeof langue !== 'undefined' && langue === 'en';
+        toast.querySelector('.agenda-toast-date .date-num').textContent = nextDate.getDate();
+        var moisEl = toast.querySelector('.agenda-toast-date .date-mois');
+        moisEl.setAttribute('data-fr', MOIS[nextDate.getMonth()]);
+        moisEl.setAttribute('data-en', MOIS_EN[nextDate.getMonth()]);
+        moisEl.textContent = (en ? MOIS_EN : MOIS)[nextDate.getMonth()];
+        var t = toast.querySelector('.agenda-toast-titre');
+        t.textContent = titre.textContent.trim();
+        t.setAttribute('data-fr', titre.getAttribute('data-fr') || t.textContent);
+        t.setAttribute('data-en', titre.getAttribute('data-en') || t.textContent);
+        toast.querySelector('.agenda-toast-lieu').textContent = lieu.textContent.trim();
+        if (en) t.textContent = t.getAttribute('data-en');
+        toast.style.display = '';
+        setTimeout(showCard, 3000);
+      }).catch(function () {});
 
       collapseBtn.addEventListener('click', collapseCard);
       badge.addEventListener('click', showCard);
