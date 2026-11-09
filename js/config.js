@@ -18,7 +18,7 @@ const JED_CONFIG = {
     logo: "https://res.cloudinary.com/dztxdthmd/image/upload/v1780689618/JED-TOGO_hibswd.png",
     site_togo: "https://jedtogo.org",
     email: "associationjedtogo@gmail.com",
-    telephone: "+33 6 22 28 77 69",
+    telephone: "+33 6 59 70 44 75",
     adresse: "France",
   },
 
